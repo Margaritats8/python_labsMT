@@ -1,0 +1,11 @@
+och = 0
+zaoch = 0
+n = int(input())
+for i in range(1,n+1):
+    new = input('in_' + str(i) + ' ').split()
+    if len(new) == 4:
+        if new[-1] == 'True':
+            och += 1
+        elif new[-1] == 'False':
+            zaoch += 1
+print('out:', och,zaoch)
