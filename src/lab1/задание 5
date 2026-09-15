@@ -1,0 +1,6 @@
+fio = input('ФИО: ').split()
+print(f'Инициалы: {fio[0][0]+fio[1][0]+fio[2][0]}')
+dlina = 0
+for x in fio:
+    dlina += len(x)
+print(f'Длина (символов): {dlina + 2}')
