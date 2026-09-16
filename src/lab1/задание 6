@@ -1,6 +1,6 @@
 och = 0
 zaoch = 0
-n = int(input())
+n = int(input('n= '))
 for i in range(1,n+1):
     new = input('in_' + str(i) + ' ').split()
     if len(new) == 4:
