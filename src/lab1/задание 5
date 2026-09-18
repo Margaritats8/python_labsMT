@@ -1,5 +1,6 @@
 fio = input('ФИО: ').split()
-print(f'Инициалы: {fio[0][0]+fio[1][0]+fio[2][0]}')
+ini = (fio[0][0]+fio[1][0]+fio[2][0]).upper()
+print(f'Инициалы: {ini}.')
 dlina = 0
 for x in fio:
     dlina += len(x)
