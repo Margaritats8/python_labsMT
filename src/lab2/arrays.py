@@ -1,6 +1,12 @@
 def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
+    """
+    This function takes list and return min and max of the list.
+
+    Example: [1,2,3] --> (1,3)
+
+    """
     if len(nums) == 0:
-        return 'ValueError'
+        raise ValueError('list is empty')
     minim, maxim = nums[0], nums[0]
     for i in nums:
         if i > maxim:
@@ -16,20 +22,22 @@ print(min_max([]))
 print(min_max([1.5,2,2.0,-3.1]))
 
 def bubble_sort(nums):  
-    # Устанавливаем swapped в True, чтобы цикл запустился хотя бы один раз
     swapped = True
     while swapped:
         swapped = False
         for i in range(len(nums) - 1):
             if nums[i] > nums[i + 1]:
-                # Меняем элементы
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
-                # Устанавливаем swapped в True для следующей итерации
                 swapped = True
     return nums
     
 
 def unique_sorted(nums:list[float | int]) -> list[float | int]:
+    """
+    This function takes list and return sorted list without repeating elements
+    
+    Example: [3,1,3,2,2,-1] --> [-1,1,2,3]
+    """
     res = []
     for i in nums:
         if i not in res:
@@ -43,13 +51,19 @@ print(unique_sorted([-1,-1,0,2,2]))
 print(unique_sorted([1.0,1,2.5,2.5,0]))
 
 def flatten(mat: list[list | tuple]) -> list[float | int]:
+    """
+    This function takes list, consisting of lists and tuples and returns a list by unpacking
+    the contents of the inner elements of the original list.
+
+    Example: [[1,2,3],(4,5,5)] --> [1,2,3,4,5,5]
+    """
     res = []
     for i in mat:
         if type(i) == list or type(i) == tuple:
             for j in i:
                 res += [j]
         else:
-            return 'TypeError'
+            raise TypeError("The list contains elements that are not lists or tuples.")
     return res
 
 
