@@ -1,10 +1,17 @@
 def transpose(mat: list):
+    """
+    This function turns matrix m x n --> matrix n x m
+    For the operation to be correct, it is necessary to enter a rectangular matrix.
+
+    """
     if len(mat) == 0:
         return []
     l = len(mat[0])
     for i in mat:
         if len(i) != l:
-            return 'ValueError'
+            raise ValueError("Matrice isn't rectangly.")
+        if type(i) != list:
+            raise TypeError('The list contains elements that are not lists')
     res = []
     for i in range(l):
         new = []
@@ -21,6 +28,10 @@ print(transpose([[1,2],[3]]))
 
 
 def row_sums(mat: list):
+    """
+    
+    """
+
     res = []
     l = len(mat[0])
     for i in mat:
