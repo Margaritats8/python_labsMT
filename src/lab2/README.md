@@ -1,5 +1,5 @@
 # Лаба 2
-№
+
 
 # Задание 1
 ## Функция mim_max
@@ -25,4 +25,43 @@ print(min_max([42]))
 print(min_max([-5,-2,-9]))
 print(min_max([]))
 print(min_max([1.5,2,2.0,-3.1]))
+
 ```
+
+Вывод
+
+
+
+
+# функция unique_sorted
+
+
+Т.к встроенная сортировка запрещена, создаю классическую фукцию пузырьковой сортировки. Короче говоря, прохожусь по списку и меняю элементы местами до тех пор пока все они не будут в правильном порядке. Для проверки уникальности создаю пустой список, прохожусь по исходному и, если в результатном списке нет такого элемента. добавляю элемент.
+```Python
+def bubble_sort(nums):  
+    # Устанавливаем swapped в True, чтобы цикл запустился хотя бы один раз
+    swapped = True
+    while swapped:
+        swapped = False
+        for i in range(len(nums) - 1):
+            if nums[i] > nums[i + 1]:
+                # Меняем элементы
+                nums[i], nums[i + 1] = nums[i + 1], nums[i]
+                # Устанавливаем swapped в True для следующей итерации
+                swapped = True
+    return nums
+    
+
+def unique_sorted(nums:list[float | int]) -> list[float | int]:
+    res = []
+    for i in nums:
+        if i not in res:
+            res += [i]
+    return bubble_sort(res)
+
+# tets_cases
+
+print(unique_sorted([3, 1, 2, 1, 3]))
+print(unique_sorted([]))
+print(unique_sorted([-1,-1,0,2,2]))
+print(unique_sorted([1.0,1,2.5,2.5,0]))
