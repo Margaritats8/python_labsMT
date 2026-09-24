@@ -1,4 +1,14 @@
 def check_rect(mat: list[list[float | int]]):
+    """
+    This function checking for the matrix to be rectangular.
+
+    Input data: list[list[float | int]]
+
+    Examples: [[1,2,3],[1,2]] --> ValueError
+              [[1,2,3], 'ab'] --> TypeError
+              [[1,2,3],[4,5,6]] --> True
+
+    """
     l = len(mat[0])
     for i in mat:
         if len(i) != l:
@@ -8,8 +18,7 @@ def check_rect(mat: list[list[float | int]]):
     else:
         return True
 
-
-
+'''
 def transpose(mat: list[list[float | int]]) -> list[list]:
     """
     This function turns matrix m x n --> matrix n x m
@@ -19,7 +28,8 @@ def transpose(mat: list[list[float | int]]) -> list[list]:
     """
     if len(mat) == 0:
         return []
-    if check_rect(mat):
+    proverka = check_rect(mat)
+    if proverka:
         res = []
         for i in range(len(mat[0])):
             new = []
@@ -32,10 +42,10 @@ print(transpose([[1,2,3]]))
 print(transpose([[1],[2],[3]]))
 print(transpose([[1,2], [3,4]]))
 print(transpose([]))
-print(transpose([[1,2],[3]]))
+print(transpose([[1,2],[3]]))'''
 
 
-def row_sums(mat: list[list[float | int]]) -> list[float]:
+'''def row_sums(mat: list[list[float | int]]) -> list[float]:
     """
     This function takes list and return list which contains row sums.
 
@@ -44,25 +54,22 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
     Example: [[1,2,3],[4,5,6]] --> [6,15]
     """
     res = []
-    l = len(mat[0])
-    for i in mat:
-        if len(i) != l:
-            raise ValueError("Matrice isn't rectangly.")
-
-    for stroka in mat:
-        res1 = 0
-        for i in range(len(stroka)):
-            if (type(stroka[i]) != int) and (type(stroka[i]) != float):
-                raise TypeError('The list elements must be lists contains only int/float elemens.')
-            else:
-                res1 += stroka[i]
-        res += [res1]
+    proverka = check_rect(mat)
+    if proverka:
+        for stroka in mat:
+            res1 = 0
+            for i in range(len(stroka)):
+                if (type(stroka[i]) != int) and (type(stroka[i]) != float):
+                    raise TypeError('The list elements must be lists contains only int/float elemens.')
+                else:
+                    res1 += stroka[i]
+            res += [res1]
     return res
 
 print(row_sums([[1, 2, 3], [4, 5, 6]]))
 print(row_sums([[-1,1], [10,-10]]))
 print(row_sums([[0,0], [0,0]]))
-print(row_sums([[1, 2], [3]]))
+print(row_sums([[1, 2], [3]]))'''
 
 def col_sums(mat: list[list[float | int]]) -> list[float]:
     '''
@@ -72,20 +79,17 @@ def col_sums(mat: list[list[float | int]]) -> list[float]:
     
      Example: [[1,2,3],[4,5,6]] --> [5,7,9]
     '''
-    res = []
-    l = len(mat[0])
-    for i in mat:
-        if len(i) != l:
-            raise ValueError("Matrice isn't rectangly.")      
-
-    for i in range(l):
-        res1 = 0
-        for j in range(len(mat)):
-            if (type(mat[j][i]) != int) and (type(mat[j][i]) != float):
-                raise TypeError('The list elements must be lists contains only int/float elemens.')
-            else:
-                res1 += mat[j][i]
-        res += [res1]
+    res = []     
+    proverka = check_rect(mat)
+    if proverka:
+        for i in range(len(mat[0])):
+            res1 = 0
+            for j in range(len(mat)):
+                if (type(mat[j][i]) != int) and (type(mat[j][i]) != float):
+                    raise TypeError('The list elements must be lists contains only int/float elemens.')
+                else:
+                    res1 += mat[j][i]
+            res += [res1]
     return res
 
 print(col_sums([[1, 2,3], [4,5,6]]))
