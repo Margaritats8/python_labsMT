@@ -36,14 +36,11 @@ print(min_max([]))
 print(min_max([1.5,2,2.0,-3.1]))
 
 ```
-
 Вывод
 ![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/min_max.png)
 
 
-
 ## Функция unique_sorted
-
 
 Т.к встроенная сортировка запрещена, создаю классическую фукцию пузырьковой сортировки. Короче говоря, прохожусь по списку и меняю элементы местами до тех пор пока все они не будут в правильном порядке. Для проверки уникальности создаю пустой список, прохожусь по исходному и, если в результатном списке нет такого элемента. добавляю элемент.
 ```Python
@@ -91,7 +88,6 @@ print(unique_sorted([1.0,1,2.5,2.5,0]))
 ![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/unique_sorted.png)
 
 
-
 ## Функция flatten
 
 Создаём пустой список и если элемент исходного списка это список или кортеж, то добавляем внутрянку этого элементов в результатный список.
@@ -124,6 +120,7 @@ print(flatten([[1, 2], 'ab']))
 # Задание 2
 
 ## Доп. переиспользуемая функция check_rect
+
 Проверяет матрицы на прямоугольность, чтобы все элеметны были списками и одной длины.
 ``` python
 def check_rect(mat: list[list[float | int]]):
@@ -148,6 +145,7 @@ def check_rect(mat: list[list[float | int]]):
 ```
 
 ## Функция transpose
+
 Переворачиваем матрицу. Кол-во новых строк равно кол-ву стобцов, ну а дальше просто заполняем матрицу.
 ``` python
 def transpose(mat: list[list[float | int]]) -> list[list]:
@@ -177,6 +175,7 @@ print(transpose([[1,2],[3]]))
 ```
 
 Вывод:
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/transpose.png)
 
 
 ## Функция row_sums
@@ -211,8 +210,11 @@ print(row_sums([[1, 2], [3]]))
 ```
 
 Вывод:
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/row_sums.png)
+
 
 ## Функция col_sums
+
 То же самое, но для столбцов.
 ``` python
 def col_sums(mat: list[list[float | int]]) -> list[float]:
@@ -243,6 +245,7 @@ print(col_sums([[1, 2], [3]]))
 ```
 
 Вывод:
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/col_sums.png)
 
 
 # Задание 3
