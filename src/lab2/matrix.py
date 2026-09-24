@@ -1,25 +1,32 @@
-def transpose(mat: list):
-    """
-    This function turns matrix m x n --> matrix n x m
-    For the operation to be correct, it is necessary to enter a rectangular matrix.
-
-    Example: [[1,2],[3,4]] --> [[1,3,[2,4]]]
-    """
-    if len(mat) == 0:
-        return []
+def check_rect(mat: list[list[float | int]]):
     l = len(mat[0])
     for i in mat:
         if len(i) != l:
             raise ValueError("Matrice isn't rectangly.")
         if type(i) != list:
             raise TypeError('The list contains elements that are not lists')
-    res = []
-    for i in range(l):
-        new = []
-        for j in range(len(mat)):
-            new += [mat[j][i]]
-        res.append(new)
-    return res
+    else:
+        return True
+
+
+
+def transpose(mat: list[list[float | int]]) -> list[list]:
+    """
+    This function turns matrix m x n --> matrix n x m
+    For the operation to be correct, it is necessary to enter a rectangular matrix.
+
+    Example: [[1,2],[3,4]] --> [[1,3],[2,4]]]
+    """
+    if len(mat) == 0:
+        return []
+    if check_rect(mat):
+        res = []
+        for i in range(len(mat[0])):
+            new = []
+            for j in range(len(mat)):
+                new += [mat[j][i]]
+            res.append(new)
+        return res
 
 print(transpose([[1,2,3]]))
 print(transpose([[1],[2],[3]]))
@@ -28,13 +35,14 @@ print(transpose([]))
 print(transpose([[1,2],[3]]))
 
 
-def row_sums(mat: list):
+def row_sums(mat: list[list[float | int]]) -> list[float]:
     """
-    This function takes list and return list which contains row sums
+    This function takes list and return list which contains row sums.
+
+    Input data: list[list[float | int]]
 
     Example: [[1,2,3],[4,5,6]] --> [6,15]
     """
-
     res = []
     l = len(mat[0])
     for i in mat:
@@ -56,9 +64,11 @@ print(row_sums([[-1,1], [10,-10]]))
 print(row_sums([[0,0], [0,0]]))
 print(row_sums([[1, 2], [3]]))
 
-def col_sums(mat: list):
+def col_sums(mat: list[list[float | int]]) -> list[float]:
     '''
      This function takes list and return list which contains col sums
+
+     Input data: [list[float | int]]
     
      Example: [[1,2,3],[4,5,6]] --> [5,7,9]
     '''

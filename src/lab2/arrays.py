@@ -1,6 +1,8 @@
-def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
+'''def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
     """
     This function takes list and return min and max of the list.
+    
+    Input data: list[float | int]
 
     Example: [1,2,3] --> (1,3)
 
@@ -9,19 +11,25 @@ def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
         raise ValueError('list is empty')
     minim, maxim = nums[0], nums[0]
     for i in nums:
+        if type(i) != int and type(i) != float:
+            raise TypeError('The list should contain only float and int data types.')
         if i > maxim:
             maxim = i
         if i < minim:
             minim = i
     return (minim, maxim)
 
+#data_cases
+
 print(min_max([3,-1,5,5,0]))
 print(min_max([42]))
 print(min_max([-5,-2,-9]))
-print(min_max([]))
 print(min_max([1.5,2,2.0,-3.1]))
-
-def bubble_sort(nums):  
+print(min_max([]))
+'''
+'''
+def bubble_sort(nums: list[float | int]):  
+    
     swapped = True
     while swapped:
         swapped = False
@@ -41,14 +49,17 @@ def unique_sorted(nums:list[float | int]) -> list[float | int]:
     res = []
     for i in nums:
         if i not in res:
-            res += [i]
+            if type(i) != int and type(i) != float:
+                raise TypeError('The list should contain only float and int data types.')
+            else:
+                res += [i]
     return bubble_sort(res)
 
 
 print(unique_sorted([3, 1, 2, 1, 3]))
 print(unique_sorted([]))
 print(unique_sorted([-1,-1,0,2,2]))
-print(unique_sorted([1.0,1,2.5,2.5,0]))
+print(unique_sorted([1.0,1,2.5,2.5,0]))'''
 
 def flatten(mat: list[list | tuple]) -> list[float | int]:
     """
