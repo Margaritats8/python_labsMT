@@ -38,7 +38,7 @@ print(min_max([1.5,2,2.0,-3.1]))
 ```
 
 Вывод
-
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/min_max.png)
 
 
 
@@ -88,6 +88,9 @@ print(unique_sorted([-1,-1,0,2,2]))
 print(unique_sorted([1.0,1,2.5,2.5,0]))
 ```
 Вывод
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/unique_sorted.png)
+
+
 
 ## Функция flatten
 
@@ -114,6 +117,8 @@ print(flatten([[1, 2], (3,4,5)]))
 print(flatten([[1], [], [2,3]]))
 print(flatten([[1, 2], 'ab']))
 ```
+Вывод 
+![работа функции](https://github.com/Margaritats8/python_labsMT/blob/main/img/img2/flatten.png)
 
 
 # Задание 2
