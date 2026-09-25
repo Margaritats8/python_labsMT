@@ -6,8 +6,15 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
     Example: ("Иванов Иван Иванович", "BIVT-25", 4.6) --> Иванов И.И., гр. BIVT-25, GPA 4.60
     
+    Raises:
+    ValueError: Incorrect GPA format.
+        When type of GPA isn't float/int or GPA not in 0 < GPA < 5.
+    ValueError: Incorrect fio.
+        Fio is empty.
+    ValueError: Incorrect group.
+        Group is empty.
+    
     """
-    # rec_list = list(rec)
     fio = rec[0].split()
     res = fio[0].capitalize() + ' '
 

@@ -18,7 +18,7 @@ def check_rect(mat: list[list[float | int]]):
     else:
         return True
 
-'''
+
 def transpose(mat: list[list[float | int]]) -> list[list]:
     """
     This function turns matrix m x n --> matrix n x m
@@ -42,14 +42,18 @@ print(transpose([[1,2,3]]))
 print(transpose([[1],[2],[3]]))
 print(transpose([[1,2], [3,4]]))
 print(transpose([]))
-print(transpose([[1,2],[3]]))'''
+print(transpose([[1,2],[3]]))
 
 
-'''def row_sums(mat: list[list[float | int]]) -> list[float]:
+def row_sums(mat: list[list[float | int]]) -> list[float]:
     """
     This function takes list and return list which contains row sums.
 
     Input data: list[list[float | int]]
+
+    Raises:
+    TypeError('The list elements must be lists contains only int/float elemens.')
+        It is necessary to check the data type of the variables inside.
 
     Example: [[1,2,3],[4,5,6]] --> [6,15]
     """
@@ -69,16 +73,19 @@ print(transpose([[1,2],[3]]))'''
 print(row_sums([[1, 2, 3], [4, 5, 6]]))
 print(row_sums([[-1,1], [10,-10]]))
 print(row_sums([[0,0], [0,0]]))
-print(row_sums([[1, 2], [3]]))'''
+print(row_sums([[1, 2], [3]]))
 
 def col_sums(mat: list[list[float | int]]) -> list[float]:
-    '''
-     This function takes list and return list which contains col sums
+    """
+     This function takes list and return list which contains col sums.
 
      Input data: [list[float | int]]
     
+     Raises:
+        It is necessary to check the data type of the variables inside.
+        
      Example: [[1,2,3],[4,5,6]] --> [5,7,9]
-    '''
+    """
     res = []     
     proverka = check_rect(mat)
     if proverka:

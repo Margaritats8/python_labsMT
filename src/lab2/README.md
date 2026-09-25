@@ -12,6 +12,10 @@ def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
     
     Input data: list[float | int]
 
+    Raises:
+    TypeError('The list should contain only float and int data types.')
+        It is necessary to check the data type of the variables inside.
+
     Example: [1,2,3] --> (1,3)
     """
     if len(nums) == 0:
@@ -44,13 +48,13 @@ print(min_max([1.5,2,2.0,-3.1]))
 Т.к встроенная сортировка запрещена, создаю классическую фукцию пузырьковой сортировки. Короче говоря, прохожусь по списку и меняю элементы местами до тех пор пока все они не будут в правильном порядке. Для проверки уникальности создаю пустой список, прохожусь по исходному и, если в результатном списке нет такого элемента. добавляю элемент.
 ```Python
 def bubble_sort(nums: list[float | int]):  
-    '''
+    """
     Sorting function.
 
     Input data: list[float | int]
 
     Example: [1,5,3,2] --> [1,2,3,5]
-    '''
+    """
     swapped = True
     while swapped:
         swapped = False
@@ -63,7 +67,11 @@ def bubble_sort(nums: list[float | int]):
 
 def unique_sorted(nums:list[float | int]) -> list[float | int]:
     """
-    This function takes list and return sorted list without repeating elements
+    This function takes list and return sorted list without repeating elements.
+
+    Raises: 
+    TypeError('The list should contain only float and int data types.')
+        It is necessary to check the data type of the variables inside.
     
     Example: [3,1,3,2,2,-1] --> [-1,1,2,3]
     """
@@ -96,6 +104,10 @@ def flatten(mat: list[list | tuple]) -> list[float | int]:
     This function takes list, consisting of lists and tuples and returns a list by unpacking
     the contents of the inner elements of the original list.
 
+    Raises:
+    TypeError("The list contains elements that are not lists or tuples.")
+        It is necessary to check the data type of the variables inside.
+
     Example: [[1,2,3],(4,5,5)] --> [1,2,3,4,5,5]
     """
     res = []
@@ -123,7 +135,7 @@ print(flatten([[1, 2], 'ab']))
 Проверяет матрицы на прямоугольность, чтобы все элеметны были списками и одной длины.
 ``` python
 def check_rect(mat: list[list[float | int]]):
-    '''
+    """
     This function checking for the matrix to be rectangular.
 
     Input data: list[list[float | int]]
@@ -132,7 +144,7 @@ def check_rect(mat: list[list[float | int]]):
               [[1,2,3], 'ab'] --> TypeError
               [[1,2,3],[4,5,6]] --> True
 
-    '''
+    """
     l = len(mat[0])
     for i in mat:
         if len(i) != l:
@@ -187,6 +199,10 @@ def row_sums(mat: list[list[float | int]]) -> list[float]:
 
     Input data: list[list[float | int]]
 
+    Raises:
+    TypeError('The list elements must be lists contains only int/float elemens.')
+        It is necessary to check the data type of the variables inside.
+
     Example: [[1,2,3],[4,5,6]] --> [6,15]
     """
     res = []
@@ -217,13 +233,16 @@ print(row_sums([[1, 2], [3]]))
 То же самое, но для столбцов.
 ``` python
 def col_sums(mat: list[list[float | int]]) -> list[float]:
-    '''
-     This function takes list and return list which contains col sums
+    """
+     This function takes list and return list which contains col sums.
 
      Input data: [list[float | int]]
     
+     Raises:
+        It is necessary to check the data type of the variables inside.
+
      Example: [[1,2,3],[4,5,6]] --> [5,7,9]
-    '''
+    """
     res = []     
     proverka = check_rect(mat)
     if proverka:

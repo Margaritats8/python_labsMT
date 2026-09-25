@@ -1,11 +1,14 @@
-'''def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
+def min_max(nums:list[float | int]) -> tuple[float | int, float | int]:
     """
     This function takes list and return min and max of the list.
     
     Input data: list[float | int]
 
-    Example: [1,2,3] --> (1,3)
+    Raises:
+    TypeError('The list should contain only float and int data types.')
+        It is necessary to check the data type of the variables inside.
 
+    Example: [1,2,3] --> (1,3)
     """
     if len(nums) == 0:
         raise ValueError('list is empty')
@@ -26,10 +29,16 @@ print(min_max([42]))
 print(min_max([-5,-2,-9]))
 print(min_max([1.5,2,2.0,-3.1]))
 print(min_max([]))
-'''
-'''
+
+
 def bubble_sort(nums: list[float | int]):  
-    
+    """
+    Sorting function.
+
+    Input data: list[float | int]
+
+    Example: [1,5,3,2] --> [1,2,3,5]
+    """
     swapped = True
     while swapped:
         swapped = False
@@ -42,7 +51,11 @@ def bubble_sort(nums: list[float | int]):
 
 def unique_sorted(nums:list[float | int]) -> list[float | int]:
     """
-    This function takes list and return sorted list without repeating elements
+    This function takes list and return sorted list without repeating elements.
+
+    Raises: 
+    TypeError('The list should contain only float and int data types.')
+        It is necessary to check the data type of the variables inside.
     
     Example: [3,1,3,2,2,-1] --> [-1,1,2,3]
     """
@@ -59,12 +72,16 @@ def unique_sorted(nums:list[float | int]) -> list[float | int]:
 print(unique_sorted([3, 1, 2, 1, 3]))
 print(unique_sorted([]))
 print(unique_sorted([-1,-1,0,2,2]))
-print(unique_sorted([1.0,1,2.5,2.5,0]))'''
+print(unique_sorted([1.0,1,2.5,2.5,0]))
 
 def flatten(mat: list[list | tuple]) -> list[float | int]:
     """
     This function takes list, consisting of lists and tuples and returns a list by unpacking
     the contents of the inner elements of the original list.
+
+    Raises:
+    TypeError("The list contains elements that are not lists or tuples.")
+        It is necessary to check the data type of the variables inside.
 
     Example: [[1,2,3],(4,5,5)] --> [1,2,3,4,5,5]
     """
