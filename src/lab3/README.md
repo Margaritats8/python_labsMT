@@ -38,7 +38,7 @@
 
 
 ```
-![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/count_freq + top_n.png)
+![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/count_freq+top_n.png)
 
 
 
