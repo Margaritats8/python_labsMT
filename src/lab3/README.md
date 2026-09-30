@@ -14,7 +14,7 @@
 
 
 ```
-
+![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/normalize.png)
 
 ### tokenize()
 
@@ -25,29 +25,20 @@
 
 
 ```
+![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/tokenize.png)
 
 
 
+### count_freq() и top_n()
 
-### count_freq()
-
-Подсчитывается частота встретившихся токенов.
-
-``` python
-
-
-
-```
-
-### top_n()
-
-Создаётся топ n токенов(по умолчанию 5), которые встречаются в тексте.
+ count_freq подсчитывается частота встретившихся токенов. top_n создаётся топ n токенов(по умолчанию 5), которые встречаются в тексте.
 
 ``` python
 
 
 
 ```
+![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/count_freq + top_n.png)
 
 
 
