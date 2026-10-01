@@ -14,7 +14,6 @@
 
 
 ```
-![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/normalize.png)
 
 ### tokenize()
 
@@ -25,9 +24,6 @@
 
 
 ```
-![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/tokenize.png)
-
-
 
 ### count_freq() и top_n()
 
@@ -38,7 +34,15 @@
 
 
 ```
-![Вывод тест кейсов](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/count_freq+top_n.png)
+ ### Общий прогон мини-тестов для функций
+![Вывод](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/mini-test.png)
+
+
+
+ ## Задание B - text.stats
+
+
+
 
 
 
