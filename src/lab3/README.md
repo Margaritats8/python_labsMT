@@ -110,8 +110,10 @@ else:
     print('-' * len(head))
     for top in top_5:
         print(f'{top[0]:<{ml}} | {top[1]}')
-    print('...')
  ```
+
+ ![Вывод](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/ёжик.png)
+ ![Вывод](https://github.com/Margaritats8/python_labsMT/blob/main/img/img3/база.png)
 
 
 ## Как запустить
