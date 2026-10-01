@@ -1,6 +1,6 @@
 from src.lib.text import normalize, tokenize, count_freq, top_n
 import sys
-raw_text = open(0,encoding='utf-8').read()
+raw_text = sys.stdin.read()
 
 clean = normalize(raw_text)
 tokens = tokenize(clean)
