@@ -283,15 +283,14 @@ def format_record(rec: tuple[str, str, float]) -> str:
     Raises:
     ValueError: Incorrect GPA format.
         When type of GPA isn't float/int or GPA not in 0 < GPA < 5.
-    ValueError: Incorrect fio.
-        Fio is empty.
     ValueError: Incorrect group.
         Group is empty.
     ValueError: Incorrect tuple size.
         Tuple must contain exactly 3 elements.
     TypeError: Input is not a tuple.
         Input data must be a tuple.
-    
+    TypeError: Incorrect type of fio
+        Input data must be string and include 2 or 3 words.
     """
     if type(rec) != tuple:
         raise TypeError(f"Input data must be a tuple, but got {type(rec)}")
@@ -300,14 +299,22 @@ def format_record(rec: tuple[str, str, float]) -> str:
         raise ValueError(f"Tuple must contain exactly 3 elements, but got {len(rec)}")
 
     fio, group, gpa = rec
-    fio = fio.split()
+
+    if type(fio) == str:
+        fio = fio.split()
+    else:
+        raise TypeError('Incorrect type of fio')
+    if  2 <= len(fio) <=3:
+        res = fio[0].capitalize() + ' '
+    else:
+        raise TypeError('Incorrect type of fio')
+    
     res = fio[0].capitalize() + ' '
 
-    if gpa > 5 or gpa<0 or (type(gpa) != float and type(gpa) != int):
+    if gpa > 5 or gpa < 0 or (type(gpa) != float and type(gpa) != int):
         raise ValueError("Incorrect GPA format")
-    if fio == []:
-        raise ValueError("Incorrect fio.")
-    if group == '':
+
+    if group == '' or type(group) != str:
         raise ValueError("Incorrect group.")
     
     for i in range(1,len(fio)):
@@ -318,7 +325,7 @@ def format_record(rec: tuple[str, str, float]) -> str:
 
 print(format_record( ("Иванов Иван Иванович", "BIVT-25", 4.6) ))
 print(format_record( ("Петров Пётр", "IKBO-12", 5.0) ))
-print(format_record( ("Петров Пётр Петрович", "IKBO-12", 5.0) ))
+print(format_record( ("Петров Пётр Петрович", "IKBO-12", 5) ))
 print(format_record( ("  сИдОРова  анна   сергеевна ", "ABB-01", 3.999) ))
 print(format_record( ("  сидорова  анна   сергеевна ", "ABB-01", -1.999) ))
 ```
