@@ -287,8 +287,18 @@ def format_record(rec: tuple[str, str, float]) -> str:
         Fio is empty.
     ValueError: Incorrect group.
         Group is empty.
+    ValueError: Incorrect tuple size.
+        Tuple must contain exactly 3 elements.
+    TypeError: Input is not a tuple.
+        Input data must be a tuple.
     
     """
+    if type(rec) != tuple:
+        raise TypeError(f"Input data must be a tuple, but got {type(rec)}")
+    
+    if len(rec) != 3:
+        raise ValueError(f"Tuple must contain exactly 3 elements, but got {len(rec)}")
+
     fio, group, gpa = rec
     fio = fio.split()
     res = fio[0].capitalize() + ' '
