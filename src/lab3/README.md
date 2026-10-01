@@ -78,6 +78,64 @@ def top_n(freq: dict[str,int], n: int = 5) -> list[tuple[str,int]]:
 
  ## Задание B - text.stats
 
+Скрипт читает текст из stdin (до EOF), нормализует и токенизирует его с помощью функций из модуля text.py, считает общее количество слов, количество уникальных слов и выводит топ-5 самых частых слов. Добавлена возможность вывода красивой таблички(переменная beauty_stat).
+
+ ```python
+from src.lib.text import normalize, tokenize, count_freq, top_n
+import sys
+
+beauty_stat = 1
+raw_text = sys.stdin.read()
+
+clean = normalize(raw_text)
+tokens = tokenize(clean)
+total_w = len(tokens)
+unique = len(set(tokens))
+freq_dict = count_freq(tokens)
+top_5 = top_n(freq_dict)
+
+
+print(f'Всего слов: {total_w}')
+print(f'Уникальных слов: {unique}')
+print('Топ-5:')
+
+if not beauty_stat: 
+    for word, count in top_5:
+        print(f'{word}:{count}')
+else:
+    ml = max([len(word[0]) for word in top_5])
+    ml = max(ml, len('слово'))
+    head = f'{"слово":<{ml}} | частота'
+    print(head)
+    print('-' * len(head))
+    for top in top_5:
+        print(f'{top[0]:<{ml}} | {top[1]}')
+    print('...')
+ ```
+
+
+## Как запустить
+
+### Вручную, с клавиатуры
+
+В терминале из корня репозитория ввести
+``` powershell
+python -m src.lab3.text_stats
+```
+Появляется пустая строка и ждёт ввода. Нужно:
+
+Напечатать текст с клавиатуры и/или вставить его.
+Далее нажать Enter, чтобы перейти на новую строку (возможно чтение нескольских строк сразу).
+Чтобы завершить ввод (сигнал EOF) и запустить обработку:
+
+Windows / PowerShell: Ctrl+Z, затем Enter;
+Linux / macOS: Ctrl+D.
+
+
+И появится прекрасная статастика
+
+
+
 
 
 
