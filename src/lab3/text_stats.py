@@ -3,6 +3,8 @@ import sys
 
 beauty_stat = 1
 raw_text = sys.stdin.read()
+if raw_text.strip() == '':
+    raise ValueError('Empty string')
 
 clean = normalize(raw_text)
 tokens = tokenize(clean)
