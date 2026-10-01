@@ -10,8 +10,8 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
 
     Return returns the new text
     '''
-    if text == '':
-        raise TypeError('Empty string.')
+    # if text == '':
+        # raise TypeError('Empty string.')
     if casefold:
         text = text.casefold()
     if yo2e:
@@ -27,8 +27,8 @@ def tokenize(text: str) -> list[str]:
     This function splits the text into words (tokens).
 
     '''
-    if text == '':
-        raise TypeError('Empty string.')
+    # if text == '':
+        # raise TypeError('Empty string.')
     pattern = r"\w+(?:-\w+)*"
     tokens = re.findall(pattern, text)
     return tokens
@@ -38,8 +38,8 @@ def count_freq(tokens: list[str]) -> dict[str,int]:
     This function It counts how many times each 
     unique token is repeated.
     '''
-    if len(tokens) == 0:
-        raise TypeError('List is empty.')
+    # if len(tokens) == 0:
+        # raise TypeError('List is empty.')
     freq = {}
     for token in tokens:
         freq[token] = freq.get(token, 0) + 1
