@@ -291,6 +291,8 @@ def format_record(rec: tuple[str, str, float]) -> str:
         Input data must be a tuple.
     TypeError: Incorrect type of fio
         Input data must be string and include 2 or 3 words.
+    TypeError: Fio includes only alfa.
+        The symbols in the full name are not letters.
     """
     if type(rec) != tuple:
         raise TypeError(f"Input data must be a tuple, but got {type(rec)}")
@@ -304,6 +306,12 @@ def format_record(rec: tuple[str, str, float]) -> str:
         fio = fio.split()
     else:
         raise TypeError('Incorrect type of fio')
+    
+    
+    for j in fio:
+            if not j.replace('-','').isalpha():
+                raise TypeError('Fio includes only alfa')
+    
     if  2 <= len(fio) <=3:
         res = fio[0].capitalize() + ' '
     else:
