@@ -35,6 +35,8 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
 Текст разбивает на слова, сохраняя дефисы с помощью регулярного выражения r"\w+(?:-\w+)*". Таким образом исключаются знаки препинания, смайлы.
 
 ``` python
+import re 
+
 def tokenize(text: str) -> list[str]:
     '''
     This function splits the text into words (tokens). 
