@@ -1,11 +1,30 @@
-# Лаба 4 - Файлы txt/csv и щтчёты по текстовой статистике
+# Лаба 4 - Файлы txt/csv и отчёты по текстовой статистике
 ## Задание A
 
 ### read_text
 
 ```python
+from pathlib import Path
+def read_text(path: str | Path, encoding: str = "utf-8") -> str:
+    '''
+    Reads and returns the entire content of a text file.
 
+    Defolt text encoding: 'utf-8'. if  you want to change it use:
+        read_text("name_of_a_file.txt", encoding="cp1251")
+    
 
+    Returns:
+        The content of the file as a string.
+        If the file was empty it is ok, just returns empty string.
+    
+    Raises:
+        FileNotFoundError: if the file does not exist.
+        UnicodeDecodeError if the file cannot be decoded with the specofied encoding.
+
+    '''
+    p = Path(path)
+    # FileNotFoundError и UnicodeDecodeError пусть «всплывают» — это нормально
+    return p.read_text(encoding=encoding)
 ```
 
 1. Функция принимает на вход строку или готовый объект Path, после чего приводит аргумент к единому типу Path для дальнейших шагов.
@@ -15,7 +34,39 @@
 ### write_csv
 
 ``` python 
+from pathlib import Path
+import csv
+from typing import Iterable, Sequence
+def write_csv(rows: Iterable[Sequence], path: str | Path,
+              header: tuple[str, ...] | None = None) -> None:
+    '''
+    This function  checks if all rows and the header have the same len.
+    If they are correct, it creates the folder (if needed)
+    and writes the data to the file.
 
+    Raises:
+        ValueError:  if rows or header have different lengths.
+    '''
+    p = Path(path)
+    rows = list(rows)
+
+    if len(rows) > 0:
+        dlina = len(rows[0])
+        for row in rows:
+            if len(row) != dlina:
+                raise ValueError('Rows have different len')
+
+    if header is not None and len(header) != dlina:
+        raise ValueError('Rows have different len' )
+    
+    Path(path).parent.mkdir(parents = True, exist_ok = True)     
+
+    with p.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        if header is not None:
+            w.writerow(header)
+        for r in rows:
+            w.writerow(r)
 ```
 1. Функция принимает на вход путь к файлу в виде строки или объекта Path. Переданный объект переводится в формат списка списков для фиксации структуры в памяти.
 
@@ -31,7 +82,44 @@
 ##  Задание В
 
 ``` python
+from src.lib.text import normalize, tokenize, count_freq, top_n
+from src.lab4.io_txt_csv import read_text, write_csv
 
+def main():
+    '''
+    The main function  of the program
+    
+    It does the following steps:
+    1.Reads raw text from a file.
+    2 Cleans the text and splits it into words.
+    3.Counts how many times each word arrears.
+    4.Finds the top 5 most common words.
+    5.Saves all results to a CSV file and prints information.'''
+    try:
+        raw_text = read_text("src/data/lab4/input.txt", encoding="utf-8")
+    except FileNotFoundError:
+        print("Файл не найден")
+        return
+
+    tokens = tokenize(normalize(raw_text))
+    freq = count_freq(tokens)
+    total_words = len(tokens)
+    unique_words = len(freq)
+
+    rows = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
+    top5 = top_n(freq, n=5)
+
+    write_csv(rows, "src/data/lab4/report.csv", header=("word", "count"))
+
+    print(f"Всего слов: {total_words}")
+    print(f"Уникальных слов: {unique_words}")
+    print("Топ-5:")
+    for word, count in top5:
+        print(f"{word}: {count}")
+
+
+if __name__ == "__main__":
+    main()
 ```
 
 1. Чтение файла и валидация: Скрипт открывает файл в блоке try-except. Если файла нет (FileNotFoundError), программа выводит ошибку в консоль и останавливает выполнение через return, избегая падения.
