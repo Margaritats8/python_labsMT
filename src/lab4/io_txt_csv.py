@@ -45,7 +45,7 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
     if header is not None and len(header) != dlina:
         raise ValueError('Rows have different len' )
     
-    Path(path).parent.mkdir(parent = True, exist_ok = True)     
+    Path(path).parent.mkdir(parents = True, exist_ok = True)     
 
     with p.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)

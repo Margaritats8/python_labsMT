@@ -3,7 +3,7 @@ from src.lab4.io_txt_csv import read_text, write_csv
 
 def main():
     try:
-        raw_text = read_text("src/data/lab04/input.txt", encoding="utf-8")
+        raw_text = read_text("src/data/lab4/input.txt", encoding="utf-8")
     except FileNotFoundError:
         print("Файл не найден")
         return
@@ -16,7 +16,7 @@ def main():
     rows = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
     top5 = top_n(freq, n=5)
 
-    write_csv(rows, "src/data/lab04/report.csv", header=("word", "count"))
+    write_csv(rows, "src/data/lab4/report.csv", header=("word", "count"))
 
     print(f"Всего слов: {total_words}")
     print(f"Уникальных слов: {unique_words}")
