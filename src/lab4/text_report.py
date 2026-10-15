@@ -2,6 +2,15 @@ from src.lib.text import normalize, tokenize, count_freq, top_n
 from src.lab4.io_txt_csv import read_text, write_csv
 
 def main():
+    '''
+    The main function  of the program
+    
+    It does the following steps:
+    1.Reads raw text from a file.
+    2 Cleans the text and splits it into words.
+    3.Counts how many times each word arrears.
+    4.Finds the top 5 most common words.
+    5.Saves all results to a CSV file and prints information.'''
     try:
         raw_text = read_text("src/data/lab4/input.txt", encoding="utf-8")
     except FileNotFoundError:

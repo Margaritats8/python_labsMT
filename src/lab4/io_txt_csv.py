@@ -27,7 +27,7 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
               header: tuple[str, ...] | None = None) -> None:
     '''
     This function  checks if all rows and the header have the same len.
-    If they are correct? it creates the folder (if needed)
+    If they are correct, it creates the folder (if needed)
     and writes the data to the file.
 
     Raises:
@@ -38,13 +38,12 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
 
     if len(rows) > 0:
         dlina = len(rows[0])
+        if header is not None:
+            rows.append(header)
         for row in rows:
             if len(row) != dlina:
                 raise ValueError('Rows have different len')
 
-    if header is not None and len(header) != dlina:
-        raise ValueError('Rows have different len' )
-    
     Path(path).parent.mkdir(parents = True, exist_ok = True)     
 
     with p.open("w", newline="", encoding="utf-8") as f:
@@ -54,5 +53,5 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
         for r in rows:
             w.writerow(r)
 
-#добавить мини-тесты, докстинги раисы и разобрать чё написала хоть
+#добавить мини-тесты и разобрать чё написала хоть
 

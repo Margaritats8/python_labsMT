@@ -52,12 +52,12 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
 
     if len(rows) > 0:
         dlina = len(rows[0])
+        if header is not None:
+            rows.append(header)
         for row in rows:
             if len(row) != dlina:
                 raise ValueError('Rows have different len')
 
-    if header is not None and len(header) != dlina:
-        raise ValueError('Rows have different len' )
     
     Path(path).parent.mkdir(parents = True, exist_ok = True)     
 
@@ -157,6 +157,12 @@ if __name__ == "__main__":
 1. Отсутствие входного файла (FileNotFoundError): Если указанный файл по заданному пути не существует, программа прерывает выполнение, выводит в консоль сообщение об ошибке вида `Файл не найден` и завершает работу с кодом.
 2. Сбой декодирования (UnicodeDecodeError): Если кодировка файла не соответствует заданной (например, попытка прочесть файл `cp1251` как `utf-8`), программа завершается с уведомлением пользователя о необходимости явного указания параметра `--encoding`.
 3. Обработка пустого файла: При передаче пустого файла программа не падает. В консоли выводится статистика о нулевом количестве слов, а в результирующем CSV-файле сохраняется строка заголовка (`word,count`) без контента.
+
+![вывод пусто](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/пустооо.png)
+![вывод пусто](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/пуссстоо_csv.png)
+
+
+
 4. Большие файлы: ТЗ подразумевает полное считывание файла в оперативную память одной строкой. При обработке очень больших данных в реальных условиях рекомендуется преобразовать логику чтения на построчный вид.
 5. Валидация CSV-строк: В модуле io_txt_csv.py находится проверка структуры данных. Если массив содержит строки разной длины, используется исключение ValueError.
 
@@ -168,6 +174,26 @@ if __name__ == "__main__":
 python -m src.lab4.text_report
 ```
 
+### Базовый тест-кейс
+
+Вход: data/lab4/input.txt
+```
+Привет, мир! Привет!!!
+```
+Вывод в консоль терминала:
+```
+Всего слов: 3
+Уникальных слов: 2
+Топ-5:
+привет: 2
+мир: 1
+```
+Содержимое отчёта data/lab4/report.csv
+```
+word,count
+привет,2
+мир,1
+```
 
 
 
