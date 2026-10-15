@@ -72,12 +72,27 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
 
 2. Далее идёт проверка на "прямоугольность" и обработка возможной ошибки.
 
-3. Через цепочку вызовов Path(path).parent/mkdir(parents= True, exist_ok=True) функция находит родительский каталог для целевого файла и автоматически создаёт все недостающие промежуточные папки. Последний параметр предотвращает сбой, если директория уже создана.
+3. Через цепочку вызовов Path(path).parent.mkdir(parents= True, exist_ok=True) функция находит родительский каталог для целевого файла и автоматически создаёт все недостающие промежуточные папки. Последний параметр предотвращает сбой, если директория уже создана.
 
 4. Открывает файл через p.open() в режиме записи с параметром newline="", предотвращающим появление пустых строк на Windows.
 
 5. Инициализирует объект csv.writer(), записывает заголовок (при наличии), после чего в цикле последовательно вносит в файл каждую строку данных.
 
+### Ручные тестики
+
+```python
+from src.lab4.io_txt_csv import read_text, write_csv
+txt = read_text("src/data/lab4/input.txt") 
+print(txt) # должен вернуть строку
+write_csv([("word","count"),("test",3)], "src/data/lab4/check.csv")  # создаст CSV
+```
+Стандартный вывод
+![вывод стандарт](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/стандартный_вывод_тест.png)
+![вывод стандарт1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/тест_csv.png)
+Нет файла
+![нет файла](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/нет_файла.png)
+Пустой файл
+![пусто](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/пустой_файл.png)
 
 ##  Задание В
 
