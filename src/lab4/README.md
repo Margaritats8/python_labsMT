@@ -120,8 +120,11 @@ def main():
     3.Counts how many times each word arrears.
     4.Finds the top 5 most common words.
     5.Saves all results to a CSV file and prints information.'''
+    
+    file_path = (sys.argv[2] if len(sys.argv)>2 else 'src.data.lab4.input.txt')
+    file_enc = (sys.argv[4] if len(sys.argv)>4 else 'utf-8')
     try:
-        raw_text = read_text("src/data/lab4/input.txt", encoding="utf-8")
+        raw_text = read_text(file_path, encoding = file_enc)
     except FileNotFoundError:
         print("Файл не найден")
         return
@@ -194,8 +197,12 @@ word,count
 привет,2
 мир,1
 ```
+## Способ запуска cp1251 в text_report.py
+Запуск выполняется из корня репозитория (там, где лежит папка `src/`), с помощью `-m`:
 
-
+```python
+python -m src.lab4.text_report --in src/data/lab4/input_cp1251.txt --encoding cp1251
+```
 
 
 

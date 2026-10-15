@@ -1,5 +1,6 @@
 from src.lib.text import normalize, tokenize, count_freq, top_n
 from src.lab4.io_txt_csv import read_text, write_csv
+import sys
 
 def main():
     '''
@@ -11,8 +12,10 @@ def main():
     3.Counts how many times each word arrears.
     4.Finds the top 5 most common words.
     5.Saves all results to a CSV file and prints information.'''
+    file_path = (sys.argv[2] if len(sys.argv)>2 else 'src.data.lab4.input.txt')
+    file_enc = (sys.argv[4] if len(sys.argv)>4 else 'utf-8')
     try:
-        raw_text = read_text("src/data/lab4/input.txt", encoding="utf-8")
+        raw_text = read_text(file_path, encoding = file_enc)
     except FileNotFoundError:
         print("Файл не найден")
         return
