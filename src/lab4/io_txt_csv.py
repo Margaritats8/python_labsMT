@@ -53,5 +53,5 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
         for r in rows:
             w.writerow(r)
 
-#добавить мини-тесты и разобрать чё написала хоть
+
 
