@@ -203,4 +203,4 @@ word,count
 ```python
 python -m src.lab4.text_report --in src/data/lab4/input_cp1251.txt --encoding cp1251
 ```
-[сp1251](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/cp1251.png)
+[сpp1251](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/cp1251.png)
