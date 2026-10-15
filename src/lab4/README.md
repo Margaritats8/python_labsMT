@@ -87,11 +87,17 @@ print(txt) # должен вернуть строку
 write_csv([("word","count"),("test",3)], "src/data/lab4/check.csv")  # создаст CSV
 ```
 Стандартный вывод
+
+
 ![вывод стандарт](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/стандартный_вывод_тест.png)
 ![вывод стандарт1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/тест_csv.png)
 Нет файла
+
+
 ![нет файла](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/нет_файла.png)
 Пустой файл
+
+
 ![пусто](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/пустой_файл.png)
 
 ##  Задание В
