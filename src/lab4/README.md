@@ -120,7 +120,7 @@ def main():
     3.Counts how many times each word arrears.
     4.Finds the top 5 most common words.
     5.Saves all results to a CSV file and prints information.'''
-    
+
     file_path = (sys.argv[2] if len(sys.argv)>2 else 'src.data.lab4.input.txt')
     file_enc = (sys.argv[4] if len(sys.argv)>4 else 'utf-8')
     try:
@@ -203,6 +203,4 @@ word,count
 ```python
 python -m src.lab4.text_report --in src/data/lab4/input_cp1251.txt --encoding cp1251
 ```
-
-
-
+[вывод пусто](https://github.com/Margaritats8/python_labsMT/blob/main/img/img4/cp1251.png)
