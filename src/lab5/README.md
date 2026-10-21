@@ -196,14 +196,16 @@ csv_to_xlsx("data/samples/people.csv", "data/out/people.xlsx")
 ## Проверка результатов
 
 ### 1. JSON -> CSV
-![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img5/json_csv.png)
+![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab5/json_csv.png)
 
 ### 2. CSV -> JSON
-![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img5/csv_json.png)
+![вывод 2](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab5/csv_json.png)
+
 ### 3. CSV -> XLSX
-![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img5/lab5_excel.png)
+![вывод 3](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab5/lab5_excel.png)
+
 ### 4. Пустой JSON файл
-![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img5/empty_json.png)
+![вывод 4](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab5/empty_json.png)
 
 ### 5. Битый JSON файл
-![вывод 1](https://github.com/Margaritats8/python_labsMT/blob/main/img/img5/bad_json.png)
+![вывод 5](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab5/bad_json.png)
