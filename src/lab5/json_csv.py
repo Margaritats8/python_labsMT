@@ -32,7 +32,7 @@ def json_to_csv(json_path: str, csv_path: str) -> None:
     if not data:
         raise ValueError("Empty JSON-file")
     
-    header = list(data[0].keys()) #отсюда и ниже кусок функции разобрать
+    header = list(data[0].keys()) 
     if len(header) == 0:
         raise ValueError("Empty JSON or unsupported structure")
 
@@ -61,7 +61,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         raise ValueError(f"Invalid input file format: expected .csv")
     if not csv_file.exists():
         raise FileNotFoundError("The file was not found.")
-    with csv_file.open(encoding="utf-8") as f: #вот этот кусочек разобрать отсюда и до конца функции
+    with csv_file.open(encoding="utf-8") as f: 
         reader = csv.DictReader(f)
         if reader.fieldnames is None:
             raise ValueError("CSV does not contain a title")
@@ -80,7 +80,7 @@ csv_to_json("data/samples/people.csv", "data/out/people.json")
 csv_to_json("data/samples/cities.csv", "data/out/cities.json")
 
 # Пустой json файл
-#json_to_csv("data/samples/empty.json", "data/out/empty.csv")
+json_to_csv("data/samples/empty.json", "data/out/empty.csv")
 
 # Неподдерживаемая структура
 json_to_csv("data/samples/broken.json", "data/out/broken.csv")

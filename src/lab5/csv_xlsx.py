@@ -37,7 +37,7 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
     widths = {}
     for row in rows:
         for index, cell in enumerate(row):
-            if len(cell) > widths.get(index, 0): #не будет ли здесь ошибки
+            if len(cell) > widths.get(index, 0): 
                 widths[index] = len(cell)
 
     wb = Workbook()
@@ -48,7 +48,7 @@ def csv_to_xlsx(csv_path: str, xlsx_path: str) -> None:
 
     for index, width in widths.items():
         letter = get_column_letter(index + 1)
-        ws.column_dimensions[letter].width = max(8, width) #разобрать
+        ws.column_dimensions[letter].width = max(8, width) 
 
     Path(dst).parent.mkdir(parents=True, exist_ok=True)
     wb.save(dst)
