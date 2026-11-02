@@ -73,7 +73,7 @@ def csv_to_json(csv_path: str, json_path: str) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
-json_to_csv("data/samples/people.json", "data/out/people.csv")
+'''json_to_csv("data/samples/people.json", "data/out/people.csv")
 
 csv_to_json("data/samples/people.csv", "data/out/people.json")
 
@@ -83,4 +83,4 @@ csv_to_json("data/samples/cities.csv", "data/out/cities.json")
 json_to_csv("data/samples/empty.json", "data/out/empty.csv")
 
 # Неподдерживаемая структура
-json_to_csv("data/samples/broken.json", "data/out/broken.csv")
+json_to_csv("data/samples/broken.json", "data/out/broken.csv")'''
