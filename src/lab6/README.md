@@ -206,19 +206,19 @@ Done : data/samples/... -> data/out/...
 
 Неверный аргумент: python -m src.lab6.cli_text stats --input src/data/samples/people.txt --top -5
 
-![]![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/4pict.png)
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/4pict.png)
 
 ## Тест-кейс E: --help
 
 ```
 python -m src.lab6.cli_text --help
 ```
-![]
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/7pict.png)
 
 ```
 python -m src.lab6.cli_convert --help
 ```
-![]
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/8pict.png)
 
 
 
