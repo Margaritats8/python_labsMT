@@ -164,7 +164,7 @@ python -m src.lab06.cli_convert <команда> [параметры]
 
 ## Тест-кейс А: `cat`
 
-![]
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/1pict.png)
 
 ## Тест-кейс B: `stats`
 ### Входной файл data/lab6/text.txt`:
@@ -176,7 +176,7 @@ python -m src.lab06.cli_convert <команда> [параметры]
 Симбу назад. Симба вернулся, победил Шрама и занял своё место на скале прайда.
 
 ```
-![]
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/2pict.png)
 
 ## Тест-кейс C: конвертеры
 
@@ -193,16 +193,20 @@ Done : data/samples/... -> data/out/...
 ```
 Результат: в папке `data/out/` созданы файлы people.csv, people.json, people.xlsx.
 
-![]
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/3pict.png)
 
 ## Тест-кейс D: ошибки
 Файл не найден: python -m src.lab6.cli_text cat --input a.txt
 
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/6pict.png)
+
 Неверное расширение: python -m src.lab6.cli_convert json2csv --in src/data/samples/people.csv --out x.csv
+
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/5pict.png)
 
 Неверный аргумент: python -m src.lab6.cli_text stats --input src/data/samples/people.txt --top -5
 
-![]
+![]![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/4pict.png)
 
 ## Тест-кейс E: --help
 
