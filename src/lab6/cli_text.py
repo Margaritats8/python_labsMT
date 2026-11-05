@@ -9,7 +9,7 @@ def check_file(path: str) -> None:
     '''Checks that the input file exists.
     '''
     if not Path(path).is_file():
-        raise FileNotFoundError(f"Файл не найден: {path}")
+        raise FileNotFoundError(f"The file was not found.: {path}")
 
 
 def cmd_cat(path: str, numbered: bool) -> None:

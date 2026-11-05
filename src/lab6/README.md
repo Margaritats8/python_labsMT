@@ -15,7 +15,7 @@ def check_file(path: str) -> None:
     '''Checks that the input file exists.
     '''
     if not Path(path).is_file():
-        raise FileNotFoundError(f"Файл не найден: {path}")
+        raise FileNotFoundError(f"The file was not found.: {path}")
 
 
 def cmd_cat(path: str, numbered: bool) -> None:
@@ -158,9 +158,9 @@ python -m src.lab06.cli_convert <команда> [параметры]
 |---|---|---|
 | `cli_text` | `cat` | `--input <путь>` (обязательный), `-n` (нумерация строк) |
 | `cli_text` | `stats` | `--input <путь>` (обязательный), `--top <N>` (по умолчанию 5) |
-| `cli_convert` | `json2csv` | `--in <файл.json>`, `--out <файл.csv>` |
-| `cli_convert` | `csv2json` | `--in <файл.csv>`, `--out <файл.json>` |
-| `cli_convert` | `csv2xlsx` | `--in <файл.csv>`, `--out <файл.xlsx>` |
+| `cli_convert` | `json2csv` | `--in <файл.json>`, `--out <файл.csv>` (обязательные) |
+| `cli_convert` | `csv2json` | `--in <файл.csv>`, `--out <файл.json>` (обязательные) |
+| `cli_convert` | `csv2xlsx` | `--in <файл.csv>`, `--out <файл.xlsx>` (обязательные) |
 
 ## Тест-кейс А: `cat`
 
