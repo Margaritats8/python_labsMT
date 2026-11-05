@@ -198,7 +198,7 @@ Done : data/samples/... -> data/out/...
 ## Тест-кейс D: ошибки
 Файл не найден: python -m src.lab6.cli_text cat --input a.txt
 
-![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/6pict.png)
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab6/9pict.png)
 
 Неверное расширение: python -m src.lab6.cli_convert json2csv --in src/data/samples/people.csv --out x.csv
 
