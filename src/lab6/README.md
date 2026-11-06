@@ -48,7 +48,7 @@ def cmd_stats(path: str, top: int) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="CLI-utilities for working with text") # вот отсюда и ниже разобрать код
+    parser = argparse.ArgumentParser(description="CLI-utilities for working with text") 
     subparsers = parser.add_subparsers(dest="command")
 
     cat_parser = subparsers.add_parser("cat", help="Print file contents")
