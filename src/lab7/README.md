@@ -361,7 +361,7 @@ python -m src.lab7.check
 
 Вывод в консоль
 
-![](![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab7/bench_consol.png))
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab7/bench_consol.png)
 
 
 
