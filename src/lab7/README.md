@@ -3,6 +3,7 @@
 
 ### search.py
 ``` python
+
 def linear_search(nums, x):
     """Индекс первого вхождения x или -1.
 
@@ -38,7 +39,7 @@ def binary_search(sorted_nums, x):
     return -1
 
 
-def two_sum_brute(nums, target): # !!! нет ли здесь индекс эррор
+def two_sum_brute(nums, target): 
     """Пара индексов (i, j), i < j, nums[i] + nums[j] == target, или None.
 
     two_sum_brute([2, 7, 11, 15], 9) -> (0, 1)
@@ -53,13 +54,15 @@ def two_sum_brute(nums, target): # !!! нет ли здесь индекс эр�
 
 def two_sum_fast(nums, target):
     """То же, что two_sum_brute, но за один проход со словарём."""
-    seen = {}  # значение -> индекс
+    seen = {}  # value -> index
     for j in range(len(nums)):
         need = target - nums[j]
         if need in seen:
             return (seen[need], j)
         seen[nums[j]] = j
     return None
+
+
 
 ```
 1. linear_search: идём по списку одним циклом for, сравнивая каждый элемент с искомым. Как только нашли совпадение — возвращаем его индекс; если цикл закончился, а совпадения не было, возвращаем -1. Сложность 
@@ -72,7 +75,7 @@ def two_sum_fast(nums, target):
 
 ### Задание В
 
-### `sorting.py`
+### sorting.py
 ``` python 
 def bubble_sort(nums: list[float | int]):  
     """Новый список, отсортированный по возрастанию. Исходный не меняется.
@@ -136,7 +139,7 @@ import random
 from src.lab7.search import linear_search, binary_search, two_sum_brute, two_sum_fast
 from src.lab7.sorting import bubble_sort, insertion_sort, selection_sort
 
-checks = 0  # счётчик выполненных проверок
+checks = 0  # counter of completed checks
 
 
 def check_sorting(fn, trials=100):
@@ -147,8 +150,8 @@ def check_sorting(fn, trials=100):
         nums = [random.randint(-100, 100) for _ in range(n)]
         original = list(nums)
         result = fn(nums)
-        assert result == sorted(nums), f"{fn.__name__} ошиблась на {original}: {result}" 
-        assert nums == original, f"{fn.__name__} изменила исходный список {original}"
+        assert result == sorted(nums), f"{fn.__name__} didn't work correctly on {original}: {result}" 
+        assert nums == original, f"{fn.__name__} modefied the original list: {original}"
         checks += 1
 
 
@@ -160,28 +163,28 @@ def check_search():
         nums = [random.randint(-20, 20) for _ in range(n)]
         x = random.randint(-25, 25)
 
-        # linear_search: индекс первого вхождения, иначе -1
+        # linear_search: the index of the first matching element, or -1
         try:
             expected = nums.index(x)
         except ValueError:
             expected = -1
-        assert linear_search(nums, x) == expected, f"linear_search ошиблась на {nums}, x={x}"
+        assert linear_search(nums, x) == expected, f"linear_search didn't work correctly on {nums}, x={x}"
         checks += 1
 
-        # binary_search: на отсортированном списке
+        # binary_search: on a sorted list
         sorted_nums = sorted(nums)
         i = binary_search(sorted_nums, x)
         if x in sorted_nums:
-            assert i != -1 and sorted_nums[i] == x, f"binary_search не нашла {x} в {sorted_nums}"
+            assert i != -1 and sorted_nums[i] == x, f"binary_search didn't find {x} in {sorted_nums}"
         else:
-            assert i == -1, f"binary_search нашла лишнее {x} в {sorted_nums}" #вот это разобрать и ниже
+            assert i == -1, f"binary_search found a non-existence value {x} in {sorted_nums}" 
         checks += 1
 
-        # крайние элементы
+        # checking the end elements
         if sorted_nums:
             for edge in (sorted_nums[0], sorted_nums[-1]):
                 i = binary_search(sorted_nums, edge)
-                assert i != -1 and sorted_nums[i] == edge, f"binary_search не нашла крайний {edge} в {sorted_nums}"
+                assert i != -1 and sorted_nums[i] == edge, f"binary_search didn't find first or last element {edge} в {sorted_nums}"
                 checks += 1
 
 
@@ -194,11 +197,11 @@ def check_two_sum(trials=100):
         target = random.randint(-100, 100)
         a = two_sum_brute(nums, target)
         b = two_sum_fast(nums, target)
-        assert (a is None) == (b is None), f"two_sum разошлись на {nums}, target={target}: {a} и {b}"
+        assert (a is None) == (b is None), f"two_sum returned different valuues for the list {nums}, target={target}: {a} и {b}"
         for pair in (a, b):
             if pair is not None:
                 i, j = pair
-                assert i < j and nums[i] + nums[j] == target, f"неверная пара {pair} на {nums}, target={target}"
+                assert i < j and nums[i] + nums[j] == target, f"wrong pair {pair} on {nums}, target={target}"
         checks += 1
 
 
@@ -208,7 +211,7 @@ def main():
         check_sorting(fn)
     check_search()
     check_two_sum()
-    print(f"OK: {checks} проверок")
+    print(f"OK: {checks} checks.")
 
 
 if __name__ == "__main__":
@@ -231,6 +234,7 @@ random.seed(42) делает прогон воспроизводимым.
 ### bench.py
 
 ```python
+ 
 import random
 import timeit
 
@@ -238,7 +242,7 @@ from src.lab4.io_txt_csv import write_csv
 from src.lab7.search import linear_search, binary_search, two_sum_brute, two_sum_fast
 from src.lab7.sorting import bubble_sort, insertion_sort, selection_sort
 
-LIMIT_N = 10_000  # квадратичные сортировки на большем n не запускаем
+LIMIT_N = 10_000  # we don't run quadratic-time sorting algorithms for larger values of n
 
 
 def make_data(n):
@@ -253,7 +257,7 @@ def bench_sorts(n):
     rows.append(("sort", n, "sorted", t))
     for name, fn in (("bubble", bubble_sort), ("insertion", insertion_sort), ("selection", selection_sort)):
         if n > LIMIT_N:
-            rows.append(("sort", n, name, "> 60 с"))  # слишком долго
+            rows.append(("sort", n, name, "> 60 с"))  # too long
         else:
             t = timeit.timeit(lambda: fn(data), number=1)
             rows.append(("sort", n, name, t))
@@ -262,7 +266,7 @@ def bench_sorts(n):
 
 def bench_search(n=100_000, queries=10_000):
     data = make_data(n)
-    xs = [random.choice(data) for _ in range(queries)]  # искомые значения есть в списке
+    xs = [random.choice(data) for _ in range(queries)]  # the goal is on the list
     rows = []
 
     def run_linear():
@@ -287,9 +291,9 @@ def bench_search(n=100_000, queries=10_000):
 
 
 def bench_two_sum(n):
-    # большой разброс значений, чтобы другой пары с такой суммой почти не было
+    # a wide range of values, so that no two pairs have the same sum.
     data = [random.randint(0, 10**12) for _ in range(n)]
-    target = data[-2] + data[-1]  # пара гарантированно существует (в конце списка)
+    target = data[-2] + data[-1]  #the pair definately exists (at the end of the list)
     rows = []
     t = timeit.timeit(lambda: two_sum_brute(data, target), number=1)
     rows.append(("two_sum", n, "brute", t))
@@ -319,15 +323,14 @@ def main():
     print_table(rows)
     csv_rows = []
     for task, n, impl, sec in rows:
-        if isinstance(sec, float): ### ПЕРЕДЕЛАТЬ
+        if isinstance(sec, float):
             sec = f"{sec:.6f}"
         csv_rows.append((task, n, impl, sec))
-    write_csv(csv_rows, "data/lab7/benchmark.csv", header=("task", "n", "impl", "seconds"))
+    write_csv(csv_rows, "data/lab7/bench.csv", header=("task", "n", "impl", "seconds"))
 
 
 if __name__ == "__main__":
     main()
-
 ```
 
 Замер сортировок через timeit.timeit(..., number=1) встроенный sorted и три своих сортировки при разных n. Квадратичные на n = 100 000 не прогоняем — в таблице ставим > 60 с (по теории это ~10¹⁰ шагов).
@@ -340,4 +343,47 @@ random.seed(42) ставится ровно один раз — в main. Поэ�
 
 Вывод: таблица создаётся с помощью f-строк, выводится в консоль и сохраняется в data/lab7/benchmark.csv через write_csv.
 
+
+## Результат работы check.py
+
+Вызов
+```
+python -m src.lab7.check
+
+```
+![](images/lab07/)
+
+---
+
+## Результат бенчмарка
+
+Таблица из `data/lab7/bench.csv` (время в секундах, `random.seed(42)`):
+
+```
+task,n,impl,seconds
+sort,1000,sorted,0.000170
+sort,1000,bubble,0.088767
+sort,1000,insertion,0.050307
+sort,1000,selection,0.042396
+sort,10000,sorted,0.002585
+sort,10000,bubble,11.229788
+sort,10000,insertion,4.666113
+sort,10000,selection,3.888326
+sort,100000,sorted,0.035394
+sort,100000,bubble,> 60 с
+sort,100000,insertion,> 60 с
+sort,100000,selection,> 60 с
+search,100000,linear,34.399756
+search,100000,binary,0.044271
+search,100000,sorted_for_binary,0.029511
+search,100000,binary+sort,0.073782
+two_sum,1000,brute,0.072951
+two_sum,1000,fast,0.000366
+two_sum,10000,brute,7.468968
+two_sum,10000,fast,0.003619
+```
+
+![](images/lab07/bench.png)
+
+---
 

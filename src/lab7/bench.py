@@ -5,7 +5,7 @@ from src.lab4.io_txt_csv import write_csv
 from src.lab7.search import linear_search, binary_search, two_sum_brute, two_sum_fast
 from src.lab7.sorting import bubble_sort, insertion_sort, selection_sort
 
-LIMIT_N = 10_000  # квадратичные сортировки на большем n не запускаем
+LIMIT_N = 10_000  # we don't run quadratic-time sorting algorithms for larger values of n
 
 
 def make_data(n):
@@ -20,7 +20,7 @@ def bench_sorts(n):
     rows.append(("sort", n, "sorted", t))
     for name, fn in (("bubble", bubble_sort), ("insertion", insertion_sort), ("selection", selection_sort)):
         if n > LIMIT_N:
-            rows.append(("sort", n, name, "> 60 с"))  # слишком долго
+            rows.append(("sort", n, name, "> 60 с"))  # too long
         else:
             t = timeit.timeit(lambda: fn(data), number=1)
             rows.append(("sort", n, name, t))
@@ -29,7 +29,7 @@ def bench_sorts(n):
 
 def bench_search(n=100_000, queries=10_000):
     data = make_data(n)
-    xs = [random.choice(data) for _ in range(queries)]  # искомые значения есть в списке
+    xs = [random.choice(data) for _ in range(queries)]  # the goal is on the list
     rows = []
 
     def run_linear():
@@ -54,9 +54,9 @@ def bench_search(n=100_000, queries=10_000):
 
 
 def bench_two_sum(n):
-    # большой разброс значений, чтобы другой пары с такой суммой почти не было
+    # a wide range of values, so that no two pairs have the same sum.
     data = [random.randint(0, 10**12) for _ in range(n)]
-    target = data[-2] + data[-1]  # пара гарантированно существует (в конце списка)
+    target = data[-2] + data[-1]  #the pair definately exists (at the end of the list)
     rows = []
     t = timeit.timeit(lambda: two_sum_brute(data, target), number=1)
     rows.append(("two_sum", n, "brute", t))
@@ -89,7 +89,7 @@ def main():
         if isinstance(sec, float):
             sec = f"{sec:.6f}"
         csv_rows.append((task, n, impl, sec))
-    write_csv(csv_rows, "data/lab7/benchmark.csv", header=("task", "n", "impl", "seconds"))
+    write_csv(csv_rows, "data/lab7/bench.csv", header=("task", "n", "impl", "seconds"))
 
 
 if __name__ == "__main__":

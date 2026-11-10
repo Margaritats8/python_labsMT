@@ -3,7 +3,7 @@ import random
 from src.lab7.search import linear_search, binary_search, two_sum_brute, two_sum_fast
 from src.lab7.sorting import bubble_sort, insertion_sort, selection_sort
 
-checks = 0  # счётчик выполненных проверок
+checks = 0  # counter of completed checks
 
 
 def check_sorting(fn, trials=100):
@@ -14,8 +14,8 @@ def check_sorting(fn, trials=100):
         nums = [random.randint(-100, 100) for _ in range(n)]
         original = list(nums)
         result = fn(nums)
-        assert result == sorted(nums), f"{fn.__name__} ошиблась на {original}: {result}" 
-        assert nums == original, f"{fn.__name__} изменила исходный список {original}"
+        assert result == sorted(nums), f"{fn.__name__} didn't work correctly on {original}: {result}" 
+        assert nums == original, f"{fn.__name__} modefied the original list: {original}"
         checks += 1
 
 
@@ -27,28 +27,28 @@ def check_search():
         nums = [random.randint(-20, 20) for _ in range(n)]
         x = random.randint(-25, 25)
 
-        # linear_search: индекс первого вхождения, иначе -1
+        # linear_search: the index of the first matching element, or -1
         try:
             expected = nums.index(x)
         except ValueError:
             expected = -1
-        assert linear_search(nums, x) == expected, f"linear_search ошиблась на {nums}, x={x}"
+        assert linear_search(nums, x) == expected, f"linear_search didn't work correctly on {nums}, x={x}"
         checks += 1
 
-        # binary_search: на отсортированном списке
+        # binary_search: on a sorted list
         sorted_nums = sorted(nums)
         i = binary_search(sorted_nums, x)
         if x in sorted_nums:
-            assert i != -1 and sorted_nums[i] == x, f"binary_search не нашла {x} в {sorted_nums}"
+            assert i != -1 and sorted_nums[i] == x, f"binary_search didn't find {x} in {sorted_nums}"
         else:
-            assert i == -1, f"binary_search нашла лишнее {x} в {sorted_nums}" #вот это разобрать и ниже
+            assert i == -1, f"binary_search found a non-existence value {x} in {sorted_nums}" 
         checks += 1
 
-        # крайние элементы
+        # checking the end elements
         if sorted_nums:
             for edge in (sorted_nums[0], sorted_nums[-1]):
                 i = binary_search(sorted_nums, edge)
-                assert i != -1 and sorted_nums[i] == edge, f"binary_search не нашла крайний {edge} в {sorted_nums}"
+                assert i != -1 and sorted_nums[i] == edge, f"binary_search didn't find first or last element {edge} в {sorted_nums}"
                 checks += 1
 
 
@@ -61,11 +61,11 @@ def check_two_sum(trials=100):
         target = random.randint(-100, 100)
         a = two_sum_brute(nums, target)
         b = two_sum_fast(nums, target)
-        assert (a is None) == (b is None), f"two_sum разошлись на {nums}, target={target}: {a} и {b}"
+        assert (a is None) == (b is None), f"two_sum returned different valuues for the list {nums}, target={target}: {a} и {b}"
         for pair in (a, b):
             if pair is not None:
                 i, j = pair
-                assert i < j and nums[i] + nums[j] == target, f"неверная пара {pair} на {nums}, target={target}"
+                assert i < j and nums[i] + nums[j] == target, f"wrong pair {pair} on {nums}, target={target}"
         checks += 1
 
 
@@ -75,7 +75,7 @@ def main():
         check_sorting(fn)
     check_search()
     check_two_sum()
-    print(f"OK: {checks} проверок")
+    print(f"OK: {checks} checks.")
 
 
 if __name__ == "__main__":

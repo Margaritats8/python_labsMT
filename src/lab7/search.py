@@ -33,7 +33,7 @@ def binary_search(sorted_nums, x):
     return -1
 
 
-def two_sum_brute(nums, target): # !!! нет ли здесь индекс эррор
+def two_sum_brute(nums, target): 
     """Пара индексов (i, j), i < j, nums[i] + nums[j] == target, или None.
 
     two_sum_brute([2, 7, 11, 15], 9) -> (0, 1)
@@ -48,7 +48,7 @@ def two_sum_brute(nums, target): # !!! нет ли здесь индекс эр�
 
 def two_sum_fast(nums, target):
     """То же, что two_sum_brute, но за один проход со словарём."""
-    seen = {}  # значение -> индекс
+    seen = {}  # value -> index
     for j in range(len(nums)):
         need = target - nums[j]
         if need in seen:
