@@ -12,7 +12,7 @@ def main():
     3.Counts how many times each word arrears.
     4.Finds the top 5 most common words.
     5.Saves all results to a CSV file and prints information.'''
-    file_path = (sys.argv[2] if len(sys.argv)>2 else 'src/data/lab4/input.txt')
+    file_path = (sys.argv[2] if len(sys.argv)>2 else 'data/lab4/input.txt')
     file_enc = (sys.argv[4] if len(sys.argv)>4 else 'utf-8')
     try:
         raw_text = read_text(file_path, encoding = file_enc)
@@ -28,7 +28,7 @@ def main():
     rows = sorted(freq.items(), key=lambda x: (-x[1], x[0]))
     top5 = top_n(freq, n=5)
 
-    write_csv(rows, "src/data/lab4/report.csv", header=("word", "count"))
+    write_csv(rows, "data/lab4/report.csv", header=("word", "count"))
 
     print(f"Всего слов: {total_words}")
     print(f"Уникальных слов: {unique_words}")

@@ -39,10 +39,12 @@ def write_csv(rows: Iterable[Sequence], path: str | Path,
     if len(rows) > 0:
         dlina = len(rows[0])
         if header is not None:
-            rows.append(header)
+            if len(header) != dlina:
+                raise ValueError("Header len is wrong")
         for row in rows:
             if len(row) != dlina:
                 raise ValueError('Rows have different len')
+    
 
     Path(path).parent.mkdir(parents = True, exist_ok = True)     
 

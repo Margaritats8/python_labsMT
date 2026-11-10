@@ -8,7 +8,7 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
       Removes extra spaces and special characters.
       Replaces ё --> e (yo2e).
 
-    Return returns the new text
+    Returns the new text
     '''
     if casefold:
         text = text.casefold()
@@ -22,8 +22,7 @@ def normalize(text: str, *, casefold: bool = True, yo2e: bool = True) -> str:
 
 def tokenize(text: str) -> list[str]:
     '''
-    This function splits the text into words (tokens).
-
+    This function splits the text into words (tokens). 
     '''
     pattern = r"\w+(?:-\w+)*"
     tokens = re.findall(pattern, text)
@@ -31,7 +30,7 @@ def tokenize(text: str) -> list[str]:
 
 def count_freq(tokens: list[str]) -> dict[str,int]:
     '''
-    This function It counts how many times each 
+    This function counts how many times each 
     unique token is repeated.
     '''
     freq = {}
@@ -40,6 +39,12 @@ def count_freq(tokens: list[str]) -> dict[str,int]:
     return freq
 
 def top_n(freq: dict[str,int], n: int = 5) -> list[tuple[str,int]]:
+    '''
+    This function finds the most popular words (by default, 5)
+    
+    Returns a list consisting of tuples that store their
+    values and their count.
+    '''
     top = list(freq.items())
     top.sort(key=lambda x:(-x[1], x[0]))
     return top[:n]
