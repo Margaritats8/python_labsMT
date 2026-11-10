@@ -349,41 +349,19 @@ random.seed(42) ставится ровно один раз — в main. Поэ�
 Вызов
 ```
 python -m src.lab7.check
-
 ```
-![](images/lab07/)
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab7/check7.png)
 
----
 
 ## Результат бенчмарка
 
-Таблица из `data/lab7/bench.csv` (время в секундах, `random.seed(42)`):
+Таблица из data/lab7/bench.csv (в секундах, random.seed(42) из тз):
 
-```
-task,n,impl,seconds
-sort,1000,sorted,0.000170
-sort,1000,bubble,0.088767
-sort,1000,insertion,0.050307
-sort,1000,selection,0.042396
-sort,10000,sorted,0.002585
-sort,10000,bubble,11.229788
-sort,10000,insertion,4.666113
-sort,10000,selection,3.888326
-sort,100000,sorted,0.035394
-sort,100000,bubble,> 60 с
-sort,100000,insertion,> 60 с
-sort,100000,selection,> 60 с
-search,100000,linear,34.399756
-search,100000,binary,0.044271
-search,100000,sorted_for_binary,0.029511
-search,100000,binary+sort,0.073782
-two_sum,1000,brute,0.072951
-two_sum,1000,fast,0.000366
-two_sum,10000,brute,7.468968
-two_sum,10000,fast,0.003619
-```
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab7/bench_csv.png)
 
-![](images/lab07/bench.png)
+Вывод в консоль
 
----
+![](![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab7/bench_consol.png))
+
+
 
