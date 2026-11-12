@@ -48,7 +48,7 @@ def check_search():
         if sorted_nums:
             for edge in (sorted_nums[0], sorted_nums[-1]):
                 i = binary_search(sorted_nums, edge)
-                assert i != -1 and sorted_nums[i] == edge, f"binary_search didn't find first or last element {edge} в {sorted_nums}"
+                assert i != -1 and sorted_nums[i] == edge, f"binary_search didn't find first or last element {edge} in {sorted_nums}"
                 checks += 1
 
 
