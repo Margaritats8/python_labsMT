@@ -314,6 +314,7 @@ if __name__ == "__main__":
   {"fio": 12345, "birthdate": "2006-08-08", "group": "БИВТ-26-6-12", "gpa": 4.0}
 ]
 
-Вывод в консоль:
 ```
+
+Вывод в консоль:
 ![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab8/serialize.png)
