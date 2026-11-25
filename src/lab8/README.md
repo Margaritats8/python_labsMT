@@ -315,4 +315,5 @@ if __name__ == "__main__":
 ]
 
 Вывод в консоль:
+```
 ![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab8/serialize.png)
