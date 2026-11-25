@@ -234,3 +234,19 @@ if __name__ == "__main__":
 1. Параметр --db задан один раз в родительском парсере common (add_help=False), чтоб не было конфликта со справкой основного парсера. Пармаетр подлючен ко всем подкомандам через parents=[common]. По умолчанию установлено data/lab9/students.csv.
 2. Подкоманды: add, list, find, remove, update создаются через add_subparsers(dest="cmd"). У add все поля обязательные, у update обязателен --fio, остальные поля необязательные. --sort ограничен choices=["fio", "gpa"].
 3. Функция fail печатает Ошибка: ... в stderr и завершает программу с кодом 1. Программа запоминает ValueError (невалидные данные), KeyError (неизвестное поле) и FileNotFoundError. Ошибки аргументов (update без полей, неверный --sort) обрабатывает argparse, код возврата 2.
+
+
+## Работа парсера
+
+### Блок создания csv и добавления студентов 
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab9/add_stu.png)
+
+### Блок взаимодействия с созданным набором записей
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab9/smth.png)
+
+### Что осталось в csv после удаления записи стедента 
+
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab9/csv_stu.png)
+
+## Обработка ошибок
+
