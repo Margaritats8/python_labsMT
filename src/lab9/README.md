@@ -250,3 +250,5 @@ if __name__ == "__main__":
 
 ## Обработка ошибок
 
+Пример: дата не существует и gpa за рамками 
+![](https://github.com/Margaritats8/python_labsMT/blob/main/img/lab9/errors.png)
