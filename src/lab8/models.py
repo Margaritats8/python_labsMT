@@ -67,7 +67,10 @@ def student_age(rec, today=None):
     b = date.fromisoformat(rec["birthdate"])
 
     if isinstance(today, str):
-        today = date.fromisoformat(today)
+        try:
+                d = date.fromisoformat(today)
+        except ValueError:
+                raise ValueError(f"field birthdate: '{today}' is a non-existent date or is not in YYYY-MM-DD format")
     elif today == None:
         today = date.today()
     elif not isinstance(today, date):
