@@ -65,7 +65,12 @@ def validate_student(rec):
 def student_age(rec, today=None):
     """Full years of age on the given date (today by default)."""
     b = date.fromisoformat(rec["birthdate"])
-    today = today or date.today()
+
+    if isinstance(today, str):
+        today = date.fromisoformat(today)
+    if today == None:
+        today = date.today()
+
     age = today.year - b.year
     if (today.month, today.day) < (b.month, b.day): 
         age -= 1
